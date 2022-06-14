@@ -1,0 +1,360 @@
+/* 
+
+Author Name: Muhaimin Shihab
+Author URL: https://growtechbd.com
+Copyright: @2022 Simple E-commerce.
+Version: v1.0.1
+
+*/
+
+/* 
+
+# Google Fonts
+--------------
+1. font-family: 'Akshar', sans-serif; [400, 500, 600]
+2. font-family: 'Poppins', sans-serif; [400, 500, 600]
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+
+/* Default CSS */
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Akshar', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+a, a:hover, a:focus{
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-sm{
+    font-size: 16px;
+}
+
+.mt-150{
+    margin-top: 150px;
+}
+
+@media (max-width: 992px){
+    .mt-150{
+        margin-top: 50px;
+    }
+}
+
+.mb-150{
+    margin-bottom: 150px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin-bottom: 0;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+ul{
+    margin-bottom: 0;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+/* Header Area CSS */
+.header-area{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.header-area .header-main{
+    background-color: #FFF2F2;
+    padding: 20px 0;
+}
+
+.header-area .search-bar{
+    position: relative;
+    overflow: hidden;
+}
+
+.header-area .search-bar input{
+    padding: 8px 120px 8px 8px;
+}
+
+.header-area .input-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #F47C7C;
+    height: 100%;
+    width: 100px;
+    line-height: 200%;
+    text-align: center;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.header-area .menu{
+    list-style: none;
+}
+
+.header-area .menu li{
+    display: inline;
+}
+
+.header-area .menu li a{
+    padding: 15px 20px;
+    transition: .3s all ease-in-out;
+    position: relative;
+}
+
+.header-area .cart-item-count{
+    width: 20px;
+    height: 20px;
+    background-color: #F47C7C;
+    border-radius: 50%;
+    font-size: 10px;
+    position: absolute;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 600;
+    top: 7px;
+    right: 7px;
+}
+
+@media (max-width: 992px){
+    .header-area{
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+
+    .header-area .menu li a:first-child{
+        padding-left: 0 !important;
+    }
+}
+
+/* Products Area */
+.products-area .product-card{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: .2s all ease-in-out;
+    position: relative;
+}
+
+/* .products-area .product-card:hover{
+    background-color: #F47C7C;
+} */
+
+.products-area .product-card .product-image{
+    height: 200px;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.products-area .product-card h5{
+    height: 50px;
+    overflow: hidden;
+}
+
+.products-area .product-card img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.products-area .product-card .btn-cart{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FFF2F2;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;    
+    transition: .2s all ease-in-out;
+    margin: 0 5px;
+}
+
+.products-area .product-card .btn-cart:last-child{
+    margin-right: 0;
+}
+
+.products-area .product-card:hover .btn-cart{
+    border-radius: 4px;
+}
+
+.products-area .product-card .btn-discount{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #8605e2;
+    color: #FFF2F2;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 16px;
+    transition: .3s all ease-in-out;
+}
+
+.products-area .product-card:hover .btn-discount{
+    background-color: #FFF2F2;
+    color: #8605e2;
+}
+
+@media (max-width: 992px) {
+    .products-area .product-card .product-image{
+        height: 150px;
+        max-height: 150px;
+        overflow: hidden;
+    }
+
+    .products-area .product-card .text-end{
+        text-align: left !important;
+    }
+
+    .products-area .product-card .btn-cart:first-child{
+        margin-left: 0;
+    }
+
+    .products-area .product-card .btn-discount{
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        line-height: 40px;
+    }
+}
+
+/* Cart Area */
+.card{
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.cart-area .cursor-pointer{
+    cursor: pointer;
+}
+
+/* Categories Area */
+.categories-area{
+    overflow: hidden;
+    position: relative;
+}
+
+.categories-area .product-card{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.048);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: .2s all ease-in-out;
+    position: relative;
+    margin: 10px;
+    text-align: center;
+}
+
+.categories-area .product-card .product-image img{
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+
+.categories-area .product-card:hover{
+    background-color: #F47C7C;
+}
+
+.categories-area .slick-slider{
+    position: relative;
+}
+
+.categories-area button.slick-arrow.slick-prev {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: translateY(-50%);
+    z-index: 100;
+    border: 0;
+    background: orange;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.categories-area button.slick-arrow.slick-next {
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%);
+    z-index: 100;
+    border: 0;
+    background: orange;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.slick-next:before, .slick-prev:before {
+    line-height: 0;
+    opacity: 1;
+}
+
+.slick-prev:before{
+    margin-left: -8px;
+}
+
+.slick-next:before{
+    margin-left: -10px;
+}
+
+/* Not Found Area */
+.not-found{
+    margin-top: 200px;
+}
+
+.not-found h1{
+    font-size: 60px;
+}
+
+/* Auth Area */
+.auth-area .card-header,
+.auth-area .card-body{
+    padding: 30px;
+}
+
+/* Checkout Area */
+.checkout-area .card-header,
+.checkout-area .card-body{
+    padding: 30px;
+}
+
+.checkout-area input[type=text]{
+    border: none !important;
+    border-bottom: 1px solid #000000 !important;
+    border-radius: 0;
+}
+
+.checkout-area .form-control:focus,
+.checkout-area .form-control:active{
+    box-shadow: none !important;
+}
