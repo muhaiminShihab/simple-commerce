@@ -96,7 +96,7 @@ const AddToCart = () => {
                                     )
 
                                     :
-                                    <div className="card">
+                                    <div className="card mb-3">
                                         <div className="card-body">
                                             <div className="row align-items-center">
                                                 <div className="col-12 text-center">
