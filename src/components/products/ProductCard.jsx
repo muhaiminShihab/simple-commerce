@@ -9,27 +9,30 @@ function ProductCard({ photo, title, price, id }) {
     const { cart, setCart, total, setTotal } = useContext(CartContext);
     const handleCart = (product) => {
 
-        const existCarts = cart.find((item) => {
+        const mainCart = [...cart];
+        const existCarts = mainCart.find((item) => {
             return item.id === product.id;
         });
 
         if (existCarts) {
-            existCarts.price += existCarts.price;
+            existCarts.price += existCarts.unit;
             existCarts.quantity++;
+            setCart(mainCart);
 
             let mainTotal = [...total];
             mainTotal[0].total += product.unit;
-            mainTotal[0].tax = (mainTotal[0].total * 3) / 100;
-            mainTotal[0].delivery = (mainTotal[0].total * 10) / 100;
+            mainTotal[0].tax += 1;
+            mainTotal[0].delivery += 3;
             setTotal(mainTotal);
+            
         } else {
             const newCart = [...cart, product];
             setCart(newCart);
 
             let mainTotal = [...total];
             mainTotal[0].total += product.unit;
-            mainTotal[0].tax = (mainTotal[0].total * 3) / 100;
-            mainTotal[0].delivery = (mainTotal[0].total * 10) / 100;
+            mainTotal[0].tax += 1;
+            mainTotal[0].delivery += 3;
             setTotal(mainTotal);
         }
     }

@@ -22,37 +22,42 @@ const AddToCart = () => {
 
     // decrease cart item
     const handleItemMinus = (id) => {
-        let newCart = [...cart];
-        const cartItem = newCart.find(item => {
+        let mainCart = [...cart];
+        const cartItem = mainCart.find(item => {
             return item.id === id;
         })
 
-        cartItem.quantity--;
-        cartItem.price -= cartItem.unit;
-        setCart(newCart);
+        if (cartItem.quantity > 1) {
+            cartItem.quantity--;
+            cartItem.price -= cartItem.unit;
+            setCart(mainCart);
 
-        let mainTotal = [...total];
-        mainTotal[0].total -= cartItem.unit;
-        mainTotal[0].tax = (mainTotal[0].total * 3) / 100;
-        mainTotal[0].delivery = (mainTotal[0].total * 10) / 100;
-        setTotal(mainTotal);
+            let mainTotal = [...total];
+            mainTotal[0].total -= cartItem.unit;
+            mainTotal[0].tax -= 1;
+            mainTotal[0].delivery -= 3;
+            setTotal(mainTotal);
+
+        } else {
+            handleRemoveItem(id);
+        }
     };
 
     // increase cart item
     const handleItemPlus = (id) => {
-        let newCart = [...cart];
-        const cartItem = newCart.find(item => {
+        let mainCart = [...cart];
+        const cartItem = mainCart.find(item => {
             return item.id === id;
         })
 
         cartItem.quantity++;
         cartItem.price += cartItem.unit;
-        setCart(newCart);
+        setCart(mainCart);
 
         let mainTotal = [...total];
         mainTotal[0].total += cartItem.unit;
-        mainTotal[0].tax = (mainTotal[0].total * 3) / 100;
-        mainTotal[0].delivery = (mainTotal[0].total * 10) / 100;
+        mainTotal[0].tax += 1;
+        mainTotal[0].delivery += 3;
         setTotal(mainTotal);
     };
 
@@ -65,17 +70,15 @@ const AddToCart = () => {
             return item.id === id;
         });
 
-        mainTotal[0].total -= cartItem.unit;
-        mainTotal[0].tax = (mainTotal[0].total * 3) / 100;
-        mainTotal[0].delivery = (mainTotal[0].total * 10) / 100;
+        mainTotal[0].total -= cartItem.price;
+        mainTotal[0].tax -= cartItem.quantity;
+        mainTotal[0].delivery -= (cartItem.quantity * 3);
         setTotal(mainTotal);
 
         const newCart = mainCart.filter(item => {
             return item.id !== id;
         });
         setCart(newCart);
-
-        console.log(mainTotal);
     };
 
     return (
