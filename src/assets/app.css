@@ -72,6 +72,55 @@ ul{
     text-align: justify;
 }
 
+/* Sceleton CSS */
+.sceleton .product-image{
+    background-color: #EAF6F6;
+    border-radius: 6px;
+    height: 250px;
+}
+
+.sceleton .product-data .dummy{
+    width: 30%;
+    height: 15px;
+    background-color: #EAF6F6;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.sceleton .product-data .dummy:nth-child(2){
+    width: 70%;
+}
+
+.sceleton{
+    position: relative;
+    overflow: hidden;
+}
+
+.sceleton::after{
+    content: '';
+    width: 20px;
+    height: 150%;
+    display: block;
+    position: absolute;
+    top: -40px;
+    background-color: #ffffff;
+    transform: rotate(30deg);
+    animation-name: sceleton;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.023);
+}
+
+@keyframes sceleton{
+    from{
+        margin-left: -100%;
+    }
+    
+    to{
+        margin-left: 120%;
+    }
+}
+
 /* Header Area CSS */
 .header-area{
     position: fixed;
